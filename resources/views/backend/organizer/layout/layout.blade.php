@@ -23,10 +23,10 @@
 
 <body class="">
     <!-- [ navigation menu ] start -->
-    @include('backend.admin.partials.navbar')
+    @include('backend.organizer.partials.navbar')
     <!-- [ navigation menu ] end -->
     <!-- [ Header ] start -->
-    @include('backend.admin.partials.asidebar')
+    @include('backend.organizer.partials.asidebar')
     <!-- [ Header ] end -->
 
 

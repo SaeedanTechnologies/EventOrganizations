@@ -7,7 +7,7 @@
                     <img class="img-radius" src="{{asset('backend/assets/images/user/avatar-2.jpg')}}"
                         alt="User-Profile-Image">
                     <div class="user-details">
-                        <span>Admin</span>
+                        <span>{{auth()->user()->first_name}} {{auth()->user()->last_name}}</span>
                     </div>
                 </div>
                 <div class="collapse" id="nav-user-link">
@@ -27,7 +27,7 @@
                     <label>Navigation</label>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin.dashboard')}}" class="nav-link "><span class="pcoded-micon"><i
+                    <a href="{{route('organizer.dashboard')}}" class="nav-link "><span class="pcoded-micon"><i
                                 class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
                 </li>
                 <!-- <li class="nav-item pcoded-hasmenu">
@@ -42,23 +42,24 @@
                 <!-- <li class="nav-item pcoded-menu-caption">
                     <label>UI Element</label>
                 </li> -->
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="{{route('admin.organizers.index')}}" class="nav-link "><span class="pcoded-micon"><i
                                 class="feather icon-box"></i></span><span class="pcoded-mtext">Organizer</span></a>
-                </li>
+                </li> -->
                 <!-- <li class="nav-item pcoded-menu-caption">
                     <label>Forms &amp; table</label>
                 </li> -->
+                
                 <li class="nav-item">
-                    <a href="{{route('admin.users.index')}}" class="nav-link "><span class="pcoded-micon"><i
-                                class="feather icon-file-text"></i></span><span class="pcoded-mtext">Users</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('admin.events.index')}}" class="nav-link "><span class="pcoded-micon"><i
+                    <a href="{{route('organizer.events.index')}}" class="nav-link "><span class="pcoded-micon"><i
                                 class="feather icon-align-justify"></i></span><span
                             class="pcoded-mtext">Events</span></a>
                 </li>
-                <li class="nav-item pcoded-menu-caption">
+                <li class="nav-item">
+                    <a href="{{route('organizer.special_offers.index')}}" class="nav-link "><span class="pcoded-micon"><i
+                                class="feather icon-file-text"></i></span><span class="pcoded-mtext">Special Offers</span></a>
+                </li>
+                <!-- <li class="nav-item pcoded-menu-caption">
                     <label>Newsletter</label>
                 </li>
                 <li class="nav-item">
@@ -70,12 +71,12 @@
                     <a href="map-google.html" class="nav-link "><span class="pcoded-micon"><i
                                 class="feather icon-map"></i></span><span class="pcoded-mtext">Send
                             Newsletter</span></a>
-                </li>
+                </li> -->
                 <li class="nav-item pcoded-menu-caption">
                     <label>Pages</label>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin.profile')}}" class="nav-link "><span class="pcoded-micon"><i
+                    <a href="{{route('organizer.profile')}}" class="nav-link "><span class="pcoded-micon"><i
                                 class="feather icon-lock"></i></span><span class="pcoded-mtext">Profile</span></a>
                 </li>
                 <!-- <li class="nav-item"><a href="sample-page.html" class="nav-link "><span class="pcoded-micon"><i

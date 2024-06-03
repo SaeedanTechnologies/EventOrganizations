@@ -37,12 +37,12 @@
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $offer->Event->title }}</td>
                             <td>{{ $offer->title }}</td>
-                            <td>{{ $offer->discount_percentage }}</td>
+                            <td>{{ $offer->discount_percentage }}%</td>
                             <td>{{ $offer->start_date }}</td>
                             <td>{{ $offer->end_date }}</td>
                             <td>
-                                <a href="{{route('special_offers.events.edit', $offer->id)}}" class="btn btn-primary">Edit</a>
-                                <a href="{{route('special_offers.events.destroy', $offer->id)}}" class="btn btn-danger">Delete</a>
+                                <a href="{{route('organizer.special_offers.edit', $offer->id)}}" class="btn btn-primary">Edit</a>
+                                <a href="{{route('organizer.special_offers.destroy', $offer->id)}}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                         @endforeach

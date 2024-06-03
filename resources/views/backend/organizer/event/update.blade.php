@@ -60,16 +60,6 @@
                     </div>
                 </div>
 
-                <!-- <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="image">Image</label>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="image" id="image">
-                            <label class="custom-file-label" for="image">Choose file</label>
-                        </div>
-                    </div>
-
-                </div> -->
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <img src="{{ $event->image }}" alt="Event Image" class="img-fluid rounded"

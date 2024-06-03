@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\Organizer;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Auth;
 
 class OrganizerController extends Controller
 {

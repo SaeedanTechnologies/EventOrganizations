@@ -1,0 +1,75 @@
+@extends('backend.organizer.layout.layout')
+@section('content')
+<div class="col-md-12 mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="text-center">Update Special Offer</h3>
+        </div>
+        <div class="card-body">
+            <form action="{{ route('organizer.special_offers.update', $offer->id) }}" method="post" enctype="multipart/form-data">
+                @csrf
+                @method('put')
+                @if(Session::get('success'))
+                <div class="alert alert-success">
+                    {{ Session::get('success') }}
+                </div>
+                @endif
+                @if(Session::get('error'))
+                <div class="alert alert-danger">
+                    {{ Session::get('error') }}
+                </div>
+                @endif
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="organizer">Event</label>
+                        <select class="form-control" id="organizer" name="event_id"  required>
+                            <option value="">Select Event</option>
+                            @foreach($events as $event)
+                            <option value="{{ $event->id }}"
+                                {{ $offer->event_id == $event->id ? 'selected' : '' }}>
+                                {{ $event->title }}
+                            </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" name="title" value="{{$offer->title}}" id="title" placeholder="Event Title"
+                            required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" name="description" id="description"
+                            placeholder="Event Description" required>{{$offer->description}} </textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="discount_percentage">Discount Percentage</label>
+                        <input type="number" class="form-control" name="discount_percentage" value="{{$offer->discount_percentage}}" id="discount_percentage"
+                            placeholder="Discount Percentage" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="start_date">Start Date</label>
+                        <input type="date" class="form-control" name="start_date" value="{{$offer->start_date}}" id="start_date" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="end_date">End Date</label>
+                        <input type="date" class="form-control" name="end_date" value="{{$offer->end_date}}" id="end_date" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Update Offer</button>
+            </form>
+        </div>
+    </div>
+</div>
+@endsection

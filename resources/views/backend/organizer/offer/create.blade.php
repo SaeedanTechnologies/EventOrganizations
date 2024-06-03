@@ -22,7 +22,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="organizer">Event</label>
-                        <select class="form-control" id="organizer" name="organizer_id" required>
+                        <select class="form-control" id="organizer" name="event_id" required>
                             <option value="">Select Event</option>
                             @foreach($events as $event)
                             <option value="{{ $event->id }}">{{ $event->title }}</option>

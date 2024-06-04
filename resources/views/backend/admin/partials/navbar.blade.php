@@ -62,12 +62,12 @@
                     <label>Newsletter</label>
                 </li>
                 <li class="nav-item">
-                    <a href="chart-apex.html" class="nav-link "><span class="pcoded-micon"><i
+                    <a href="{{route('admin.all_subscriber')}}" class="nav-link "><span class="pcoded-micon"><i
                                 class="feather icon-pie-chart"></i></span><span class="pcoded-mtext">Subscribed
                             User</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="map-google.html" class="nav-link "><span class="pcoded-micon"><i
+                    <a href="{{route('admin.newsletter')}}" class="nav-link "><span class="pcoded-micon"><i
                                 class="feather icon-map"></i></span><span class="pcoded-mtext">Send
                             Newsletter</span></a>
                 </li>

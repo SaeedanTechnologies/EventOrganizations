@@ -24,12 +24,24 @@
                         <h4 class="mb-3 f-w-400">Signin</h4>
                         <hr>
                         <form action="{{route('login')}}" method="post">
+                            @if(Session::get('success'))
+                            <div class="alert alert-success">
+                                {{Session::get('success')}}
+                            </div>
+                            @endif
+                            @if(Session::get('error'))
+                            <div class="alert alert-danger">
+                                {{Session::get('error')}}
+                            </div>
+                            @endif
                             @csrf
                             <div class="form-group mb-3">
-                                <input type="text" class="form-control" id="Email" name="email" placeholder="Email address" required>
+                                <input type="text" class="form-control" id="Email" name="email"
+                                    placeholder="Email address" required>
                             </div>
                             <div class="form-group mb-4">
-                                <input type="password" class="form-control" id="Password" name="password" placeholder="Password" required>
+                                <input type="password" class="form-control" id="Password" name="password"
+                                    placeholder="Password" required>
                             </div>
                             <div class="custom-control custom-checkbox text-left mb-4 mt-2">
                                 <input type="checkbox" class="custom-control-input" id="customCheck1">

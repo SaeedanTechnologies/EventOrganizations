@@ -5,7 +5,8 @@ use App\Http\Controllers\Backend\Admin\{
     AdminController, 
     OrganizerController, 
     UserController,
-    EventController};
+    EventController,
+    SubscriberController};
 use App\Http\Controllers\Backend\Organizer\{
     OrganizerController as UserOrganizer,
     EventController as EventOrganizer,
@@ -18,7 +19,7 @@ Route::get('/', function () {
     return view('backend.admin.dashboard');
 });
 
-Route::get('/login',          [AdminController::class, 'login_view'])->name('login');
+Route::get('/login',           [AdminController::class, 'login_view'])->name('login_view');
 Route::post('/login',          [AdminController::class, 'login'])->name('login');
 
 /* admin routes */
@@ -32,9 +33,15 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->as('admin.')->group(
     Route::resource('organizers',       OrganizerController::class);
     Route::resource('users',            UserController::class);
     Route::resource('events',           EventController::class);
+    /* user subscriber and newsletter route */
+    Route::get('/all_subscribers',       [SubscriberController::class, 'all_subscriber'])->name('all_subscriber');
+    Route::get('/send/newsletter',       [SubscriberController::class, 'newsletter'])->name('newsletter');
+    Route::post('/send/newsletter',      [SubscriberController::class, 'send_newsletter'])->name('send_newsletter');
 });
 
 
+Route::get('organizer/register',         [UserOrganizer::class, 'register_view'])->name('organizer.register_view');
+Route::post('organizer/register',        [UserOrganizer::class, 'register'])->name('organizer.register');
 /* organizer routes */
 Route::middleware(['auth', 'role:organizer'])->prefix('organizer')->as('organizer.')->group(function () {
 
@@ -54,3 +61,6 @@ Route::middleware(['auth', 'role:user'])->prefix('user')->as('user.')->group(fun
     Route::get('/dashboard',            [AuthController::class, 'dashboard'])->name('dashboard');
     Route::get('/logout',               [AuthController::class, 'logout'])->name('logout');
 });
+
+/* user subscriber for newsletter route */
+Route::post('subscribe', [SubscriberController::class, 'subscribe'])->name('save_subscriber');

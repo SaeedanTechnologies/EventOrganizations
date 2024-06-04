@@ -4,7 +4,11 @@ namespace App\Http\Controllers\Backend\Organizer;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Enums\UserRolesEnum;
 use Auth;
+use Hash;
+use App\Http\Requests\Backend\AddUserRequest;
+use App\Models\User;
 
 class OrganizerController extends Controller
 {
@@ -45,6 +49,30 @@ class OrganizerController extends Controller
                 'phone'       => $request->phone ?? $organizer->phone,
             ]);
             return redirect()->back()->with('success', 'Profile updated');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'Something went wrong: ' . $th->getMessage());
+        }
+    }
+
+    public function register_view()
+    {
+        return view('backend.organizer.register');
+    }
+
+    public function register(AddUserRequest $request)
+    {
+        try {
+            $data = $request->validated();
+            User::create([
+                'first_name'  => $data['first_name'],
+                'last_name'   => $data['last_name'],
+                'email'       => $data['email'],
+                'password'    => Hash::make($data['password']),
+                'original_password' => $data['password'],
+                'phone'       => $data['phone'],
+                'role'        => UserRolesEnum::ORGANIZER
+            ]);
+            return redirect()->route('login')->with('success', 'Signup Succesfully');
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', 'Something went wrong: ' . $th->getMessage());
         }

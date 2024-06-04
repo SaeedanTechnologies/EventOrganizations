@@ -7,70 +7,12 @@
     <title>EventGrids - Conference and Event HTML Template.</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
-
-    <!-- ========================= CSS here ========================= -->
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/bootstrap.min.css')}}" />
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/LineIcons.3.0.css')}}" />
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/animate.css')}}" />
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/tiny-slider.css')}}" />
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/glightbox.min.css')}}" />
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/main.css')}}" />
-
+    @include('frontend.partials.style')
 </head>
 
 <body>
-
-
     <!-- Start Header Area -->
-    <header class="header navbar-area">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <div class="nav-inner">
-                        <!-- Start Navbar -->
-                        <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="index-2.html">
-                                <img src="{{asset('frontend/assets/images/logo/logo.svg')}}" alt="Logo">
-                            </a>
-                            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="toggler-icon"></span>
-                                <span class="toggler-icon"></span>
-                                <span class="toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-                                <ul id="nav" class="navbar-nav ms-auto">
-                                    <li class="nav-item">
-                                        <a href="index-2.html" class="active" aria-label="Toggle navigation">Home</a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="schedule.html" aria-label="Toggle navigation">About</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="schedule.html" aria-label="Toggle navigation">Events</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="speakers.html" aria-label="Toggle navigation">Blog</a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="contact.html" aria-label="Toggle navigation">Contact</a>
-                                    </li>
-                                </ul>
-                            </div> <!-- navbar collapse -->
-                            <div class="button">
-                                <a href="pricing.html" class="btn">Signup/Login<i class="lni lni-ticket"></i></a>
-                            </div>
-                        </nav>
-                        <!-- End Navbar -->
-                    </div>
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </header>
+    @include('frontend.partials.header')
     <!-- End Header Area -->
 
     <!-- Start Hero Area -->
@@ -464,121 +406,13 @@
     <!-- End Call Action Area -->
 
     <!-- Start Footer Area -->
-    <footer class="footer">
-        <!-- Start Footer Top -->
-        <div class="footer-top">
-            <div class="container">
-                <div class="inner-content">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <!-- Single Widget -->
-                            <div class="single-footer f-about">
-                                <div class="logo">
-                                    <a href="index-2.html">
-                                        <img src="assets/images/logo/dark-logo.svg" alt="#">
-                                    </a>
-                                </div>
-                                <p>A business conference organize by EventGrids In. World’s most influential media,
-                                    entertainment & technology.</p>
-                                <span class="social-title">
-                                    Follow Us On:
-                                </span>
-                                <ul class="social">
-                                    <li>
-                                        <a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)"><i class="lni lni-twitter-filled"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)"><i class="lni lni-instagram-filled"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- End Single Widget -->
-                        </div>
-                        <div class="col-lg-2 col-md-6 col-12">
-                            <!-- Single Widget -->
-                            <div class="single-footer f-link">
-                                <h3>Quick Links</h3>
-                                <ul>
-                                    <li><a href="javascript:void(0)">Get Direction</a></li>
-                                    <li><a href="javascript:void(0)">Sponsor</a></li>
-                                    <li><a href="javascript:void(0)">What We Offer</a></li>
-                                    <li><a href="javascript:void(0)">Ricent Projects</a></li>
-                                    <li><a href="javascript:void(0)">Insights</a></li>
-                                </ul>
-                            </div>
-                            <!-- End Single Widget -->
-                        </div>
-                        <div class="col-lg-2 col-md-6 col-12">
-                            <!-- Single Widget -->
-                            <div class="single-footer f-link">
-                                <h3>Know More</h3>
-                                <ul>
-                                    <li><a href="javascript:void(0)">About Us</a></li>
-                                    <li><a href="javascript:void(0)">Our Pricing</a></li>
-                                    <li><a href="javascript:void(0)">Faq</a></li>
-                                    <li><a href="javascript:void(0)">Guides</a></li>
-                                    <li><a href="javascript:void(0)">Contact Us</a></li>
-                                </ul>
-                            </div>
-                            <!-- End Single Widget -->
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <!-- Single Widget -->
-                            <div class="single-footer newsletter">
-                                <h3>Subscribe to our newsletter</h3>
-                                <form action="#" method="get" target="_blank" class="newsletter-form">
-                                    <input name="name" placeholder="Your Name*" required="required" type="text">
-                                    <input name="email" placeholder="Email address*" required="required" type="email">
-                                    <div class="button">
-                                        <button class="btn">Subscribe
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                            <!-- End Single Widget -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/ End Footer Top -->
-        <!-- Start Copyright Area -->
-        <div class="copyright">
-            <div class="container">
-                <div class="inner-content">
-                    <div class="row">
-                        <div class="col-12">
-                            <p class="copyright-text">Designed and Developed by <a href="https://graygrids.com/"
-                                    rel="nofollow" target="_blank">GrayGrids</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Copyright Area -->
-    </footer>
+    @include('frontend.partials.footer')
     <!--/ End Footer Area -->
-
     <!-- ========================= scroll-top ========================= -->
     <a href="#" class="scroll-top">
         <i class="lni lni-chevron-up"></i>
     </a>
-
     <!-- ========================= JS here ========================= -->
-    <script src="{{asset('frontend/assets/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('frontend/assets/js/wow.min.js')}}"></script>
-    <script src="{{asset('frontend/assets/js/tiny-slider.js')}}"></script>
-    <script src="{{asset('frontend/assets/js/glightbox.min.js')}}"></script>
-    <script src="{{asset('frontend/assets/js/count-up.min.js')}}"></script>
-    <script src="{{asset('frontend/assets/js/main.js')}}"></script>
-
+    @include('frontend.partials.script')
 </body>
-
 </html>

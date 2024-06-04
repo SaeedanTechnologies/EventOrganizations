@@ -12,12 +12,16 @@ use App\Http\Controllers\Backend\Organizer\{
     EventController as EventOrganizer,
     SpecialOfferController
     };
+use App\Http\Controllers\Frontend\{
+    HomeController,
+    UserController as FrontendUserController
+    };
 
 
 
-Route::get('/', function () {
-    return view('backend.admin.dashboard');
-});
+// Route::get('/', function () {
+//     return view('frontend.home');
+// });
 
 Route::get('/login',           [AdminController::class, 'login_view'])->name('login_view');
 Route::post('/login',          [AdminController::class, 'login'])->name('login');
@@ -58,9 +62,20 @@ Route::middleware(['auth', 'role:organizer'])->prefix('organizer')->as('organize
 /* user routes */
 Route::middleware(['auth', 'role:user'])->prefix('user')->as('user.')->group(function () {
 
-    Route::get('/dashboard',            [AuthController::class, 'dashboard'])->name('dashboard');
-    Route::get('/logout',               [AuthController::class, 'logout'])->name('logout');
+    Route::get('/dashboard',            [FrontendUserController::class, 'dashboard'])->name('dashboard');
+    Route::get('/logout',               [FrontendUserController::class, 'logout'])->name('logout');
 });
 
-/* user subscriber for newsletter route */
+/*frontend and user subscriber for newsletter route */
 Route::post('subscribe', [SubscriberController::class, 'subscribe'])->name('save_subscriber');
+Route::get('/',          [HomeController::class, 'home'])->name('home');
+Route::get('/about-us',  [HomeController::class, 'about'])->name('about');
+Route::get('/contact-us',[HomeController::class, 'contact'])->name('contact');
+Route::get('/events',    [HomeController::class, 'events'])->name('events');
+
+/* user authentication routes */
+Route::get('/user/register',    [FrontendUserController::class, 'register_view'])->name('register_view');
+Route::post('/user/register',   [FrontendUserController::class, 'register'])->name('register');
+Route::get('/user/login',       [FrontendUserController::class, 'login_view'])->name('login_view');
+Route::post('/user/login',      [FrontendUserController::class, 'login'])->name('user_login');
+

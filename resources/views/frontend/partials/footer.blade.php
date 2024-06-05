@@ -66,7 +66,8 @@
                         <!-- Single Widget -->
                         <div class="single-footer newsletter">
                             <h3>Subscribe to our newsletter</h3>
-                            <form action="#" method="get" target="_blank" class="newsletter-form">
+                            <form action="{{route('save_subscriber')}}" method="post" class="newsletter-form">
+                                @csrf
                                 <input name="name" placeholder="Your Name*" required="required" type="text">
                                 <input name="email" placeholder="Email address*" required="required" type="email">
                                 <div class="button">

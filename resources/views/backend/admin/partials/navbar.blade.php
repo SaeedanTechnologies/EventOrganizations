@@ -30,15 +30,7 @@
                     <a href="{{route('admin.dashboard')}}" class="nav-link "><span class="pcoded-micon"><i
                                 class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
                 </li>
-                <!-- <li class="nav-item pcoded-hasmenu">
-                    <a href="#!" class="nav-link "><span class="pcoded-micon"><i
-                                class="feather icon-layout"></i></span><span class="pcoded-mtext">Page
-                            layouts</span></a>
-                    <ul class="pcoded-submenu">
-                        <li><a href="layout-vertical.html" target="_blank">Vertical</a></li>
-                        <li><a href="layout-horizontal.html" target="_blank">Horizontal</a></li>
-                    </ul>
-                </li> -->
+                
                 <!-- <li class="nav-item pcoded-menu-caption">
                     <label>UI Element</label>
                 </li> -->
@@ -57,6 +49,10 @@
                     <a href="{{route('admin.events.index')}}" class="nav-link "><span class="pcoded-micon"><i
                                 class="feather icon-align-justify"></i></span><span
                             class="pcoded-mtext">Events</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.all_booking')}}" class="nav-link "><span class="pcoded-micon"><i
+                                class="feather icon-layout"></i></span><span class="pcoded-mtext">Booking</span></a>
                 </li>
                 <li class="nav-item pcoded-menu-caption">
                     <label>Newsletter</label>

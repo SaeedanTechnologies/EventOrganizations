@@ -17,9 +17,11 @@ return new class extends Migration
             $table->string('title');
             $table->string('description');
             $table->date('date');
-            $table->time('time');
+            $table->time('start_time');
+            $table->time('end_time');
             $table->string('location');
             $table->string('image');
+            $table->string('price');
             $table->boolean('status')->default(true);
             $table->timestamps();
         });

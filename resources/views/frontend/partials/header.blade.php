@@ -37,7 +37,10 @@
                             </ul>
                         </div> <!-- navbar collapse -->
                         <div class="button">
-                            @if(auth()->user())
+                            @php
+                            $user = auth()->user();
+                            @endphp
+                            @if(isset($user) && $user->role == 'user')
                             <!-- Check if a user is logged in -->
                             <a href="{{ route('user.logout') }}" class="btn">Logout<i class="lni lni-ticket"></i></a>
                             @else

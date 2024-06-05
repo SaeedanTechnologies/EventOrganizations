@@ -4,10 +4,9 @@
 <div class="col-md-12 mt-5">
     <div class="card">
         <div class="card-header">
-            <h3 class="text-center">All Events</h3>
+            <h3 class="text-center">All Booking</h3>
         </div>
         <div class="card-body table-border-style">
-            <a href="{{route('admin.events.create')}}" class="btn btn-primary float-right mb-2"> Add New</a>
             <div class="table-responsive">
                 <table id="myTable" class="table table-hover">
                     @if(Session::get('success'))
@@ -23,30 +22,27 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Organizer</th>
-                            <th>Title</th>
-                            <th>Date</th>
+                            <th>Event</th>
                             <th>Price</th>
+                            <th>Date</th>
                             <th>Time</th>
-                            <th>Location</th>
-                            <th>Image</th>
+                            <th>User</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($events as $key => $event)
+                        @foreach($booking as $key => $booking)
                         <tr>
                             <td>{{ $key + 1 }}</td>
-                            <td>{{ $event->Organizer->first_name }}</td>
-                            <td>{{ $event->title }}</td>
-                            <td>{{ $event->date }}</td>
-                            <td>{{ $event->price }}</td>
-                            <td>{{ $event->start_time }} to {{ $event->end_time }}</td>
-                            <td>{{ $event->location }}</td>
-                            <td><img src="{{ $event->image }}" height="150" alt="" class="img-fluid rounded"></td>
+                            <td>{{ $booking->Event->title }}</td>
+                            <td>{{ $booking->Event->price }}</td>
+                            <td>{{ $booking->Event->date }}</td>
+                            <td>{{ \Carbon\Carbon::parse($booking->start_time)->format('h:i A') }} -
+                                {{ \Carbon\Carbon::parse($booking->end_time)->format('h:i A') }}</td>
+                            <td>{{ $booking->User->first_name }} {{ $booking->User->last_name }}</td>
                             <td>
-                                <a href="{{route('admin.events.edit', $event->id)}}" class="btn btn-primary">Edit</a>
-                                <a href="{{route('admin.events.destroy', $event->id)}}" class="btn btn-danger">Delete</a>
+                                <a href="" class="btn btn-primary">Edit</a>
+                                <a href="" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                         @endforeach

@@ -3,6 +3,7 @@
 
 
 <!-- Mirrored from demo.graygrids.com/themes/eventgrids/about-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 04 Jun 2024 12:17:18 GMT -->
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -49,39 +50,64 @@
                 </div>
             </div>
             <div class="row">
+                @foreach($event as $event)
                 <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".4s">
                     <!-- Start Single Blog Grid -->
                     <div class="single-blog-grid">
                         <div class="blog-img">
-                            <a href="blog-single.html">
-                                <img src="{{asset('frontend/assets/images/blog/blog1.jpg')}}" alt="#">
+                            <a href="{{route('events.detail', $event->id)}}">
+                                <img src="{{$event->image}}" alt="#">
                             </a>
                             <p class="date">
-                                29
+                                {{ \Carbon\Carbon::parse($event->date)->format('d') }}
                                 <span class="day">
-                                    Nov
+                                    {{ \Carbon\Carbon::parse($event->date)->format('M') }}
                                 </span>
                             </p>
+                            <!-- Offer Badge -->
+                            @isset($event->SpecialOffer)
+                            @if($event->SpecialOffer)
+                            <span class="offer-badge">Special Offer</span>
+                            @endif
+                            @endisset
                         </div>
                         <div class="blog-content">
                             <p class="date">
-                                <!-- Display End Date -->
-                                <span class="end-date">End: <b>31 Nov</b></span>
                                 <!-- Display Time -->
-                                <span class="time">Time: <b>10:00 AM - 5:00 PM</b></span>
+                                <span class="time">
+                                    Time: <b>{{ \Carbon\Carbon::parse($event->start_time)->format('h:i A') }} -
+                                        {{ \Carbon\Carbon::parse($event->end_time)->format('h:i A') }}</b>
+                                </span>
                             </p>
                             <h4>
-                                <a href="blog-single.html">3 Best Practices for Keeping Your Event Clients
-                                    Happy</a>
+                                <a href="{{route('events.detail', $event->id)}}">{{$event->title}}</a>
                             </h4>
-                            <p>Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy eirmod tempor ividunt dolore
-                                magna.</p>
-                            <a href="blog-single.html" class="more-btn">Read Detail <i
+                            <p>{{ \Illuminate\Support\Str::limit($event->description, 100) }}</p>
+                            @isset($event->SpecialOffer)
+                            @if($event->SpecialOffer)
+                            <!-- Offer Details -->
+                            <div class="offer-details">
+                                <span class="offer-item">
+                                    <i class="lni lni-tag"></i> <b>{{$event->SpecialOffer->discount_percentage}}%
+                                        Off</b>
+                                </span>
+                                <span class="offer-item">
+                                    <i class="lni lni-calendar"></i>
+                                    <b>{{ \Carbon\Carbon::parse($event->SpecialOffer->start_date)->format('d') }}
+                                        {{ \Carbon\Carbon::parse($event->SpecialOffer->start_date)->format('M') }} -
+                                        {{ \Carbon\Carbon::parse($event->SpecialOffer->end_date)->format('d') }}
+                                        {{ \Carbon\Carbon::parse($event->SpecialOffer->end_date)->format('M') }}</b>
+                                </span>
+                            </div>
+                            @endif
+                            @endisset
+                            <a href="{{route('events.detail', $event->id)}}" class="more-btn">Read Detail <i
                                     class="lni lni-arrow-right"></i></a>
                         </div>
                     </div>
                     <!-- End Single Blog Grid -->
                 </div>
+                @endforeach
                 <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".6s">
                     <!-- Start Single Blog -->
                     <div class="single-blog-grid">
@@ -95,6 +121,8 @@
                                     Mar
                                 </span>
                             </p>
+                            <!-- Offer Badge -->
+                            <span class="offer-badge">Special Offer</span>
                         </div>
                         <div class="blog-content">
                             <p class="date">
@@ -108,12 +136,22 @@
                             </h4>
                             <p>Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy eirmod tempor ividunt dolore
                                 magna.</p>
+                            <!-- Offer Details -->
+                            <div class="offer-details">
+                                <span class="offer-item">
+                                    <i class="lni lni-tag"></i> <b>20% Off</b>
+                                </span>
+                                <span class="offer-item">
+                                    <i class="lni lni-calendar"></i> <b>1 Mar - 10 Mar</b>
+                                </span>
+                            </div>
                             <a href="blog-single.html" class="more-btn">Read Detail <i
                                     class="lni lni-arrow-right"></i></a>
                         </div>
                     </div>
                     <!-- End Single Blog Grid -->
                 </div>
+
                 <div class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-delay=".8s">
                     <!-- Start Single Blog Grid -->
                     <div class="single-blog-grid">
@@ -164,4 +202,5 @@
 
 
 <!-- Mirrored from demo.graygrids.com/themes/eventgrids/about-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 04 Jun 2024 12:17:18 GMT -->
+
 </html>

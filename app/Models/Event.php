@@ -14,11 +14,15 @@ class Event extends Model
         'title',
         'description',
         'date',
-        'time',
+        'start_time',
+        'end_time',
+        'price',
         'location',
         'image',
         'status'
     ];
+
+    protected $with = ['SpecialOffer', 'Organizer', 'Booking'];
 
     public function Organizer()
     {
@@ -26,6 +30,11 @@ class Event extends Model
     }
 
     public function SpecialOffer()
+    {
+        return $this->hasOne(SpecialOffer::class);
+    }
+
+    public function Booking()
     {
         return $this->hasMany(SpecialOffer::class);
     }

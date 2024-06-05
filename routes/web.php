@@ -16,12 +16,9 @@ use App\Http\Controllers\Frontend\{
     HomeController,
     UserController as FrontendUserController
     };
+use App\Http\Controllers\BookingController;
 
 
-
-// Route::get('/', function () {
-//     return view('frontend.home');
-// });
 
 Route::get('/login',           [AdminController::class, 'login_view'])->name('login_view');
 Route::post('/login',          [AdminController::class, 'login'])->name('login');
@@ -41,6 +38,8 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->as('admin.')->group(
     Route::get('/all_subscribers',       [SubscriberController::class, 'all_subscriber'])->name('all_subscriber');
     Route::get('/send/newsletter',       [SubscriberController::class, 'newsletter'])->name('newsletter');
     Route::post('/send/newsletter',      [SubscriberController::class, 'send_newsletter'])->name('send_newsletter');
+    /* booking route */
+    Route::get('/all_booking',           [BookingController::class, 'all_booking'])->name('all_booking');
 });
 
 
@@ -56,6 +55,8 @@ Route::middleware(['auth', 'role:organizer'])->prefix('organizer')->as('organize
     /* events and special offers routes */
     Route::resource('events',           EventOrganizer::class);
     Route::resource('special_offers',   SpecialOfferController::class);
+    /* booking route */
+    Route::get('/all_booking',           [BookingController::class, 'organizer_booking'])->name('organizer_booking');
 });
 
 
@@ -63,6 +64,7 @@ Route::middleware(['auth', 'role:organizer'])->prefix('organizer')->as('organize
 Route::middleware(['auth', 'role:user'])->prefix('user')->as('user.')->group(function () {
 
     Route::get('/dashboard',            [FrontendUserController::class, 'dashboard'])->name('dashboard');
+    Route::get('/booking/{event_id}',   [HomeController::class, 'booking'])->name('booking');
     Route::get('/logout',               [FrontendUserController::class, 'logout'])->name('logout');
 });
 
@@ -72,6 +74,7 @@ Route::get('/',          [HomeController::class, 'home'])->name('home');
 Route::get('/about-us',  [HomeController::class, 'about'])->name('about');
 Route::get('/contact-us',[HomeController::class, 'contact'])->name('contact');
 Route::get('/events',    [HomeController::class, 'events'])->name('events');
+Route::get('/event/detail/{event_id}',    [HomeController::class, 'event_detail'])->name('events.detail');
 
 /* user authentication routes */
 Route::get('/user/register',    [FrontendUserController::class, 'register_view'])->name('register_view');

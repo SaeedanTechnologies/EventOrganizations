@@ -42,13 +42,16 @@
                 </div>
 
                 <div class="form-row">
+
                     <div class="form-group col-md-6">
-                        <label for="date">Date</label>
-                        <input type="date" class="form-control" name="date" value="{{$event->date}}" id="date" required>
+                        <label for="time">Start Time</label>
+                        <input type="time" class="form-control" name="start_time" value="{{$event->start_time}}"
+                            id="time" required>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="time">Time</label>
-                        <input type="time" class="form-control" name="time" value="{{$event->time}}" id="time" required>
+                        <label for="time">End Time</label>
+                        <input type="time" class="form-control" name="end_time" value="{{$event->end_time}}" id="time"
+                            required>
                     </div>
                 </div>
 
@@ -67,13 +70,23 @@
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
+                        <label for="date">Date</label>
+                        <input type="date" class="form-control" name="date" value="{{$event->date}}" id="date" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="date">Price</label>
+                        <input type="text" class="form-control" name="price" value="{{$event->price}}" id="date"
+                            required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
                         <label for="image">Image</label>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" name="image" id="image">
                             <label class="custom-file-label" for="image">Choose file</label>
                         </div>
                     </div>
-
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">

@@ -13,9 +13,11 @@ class EventRequest extends FormRequest
             'title'        => ['required', 'string'], 
             'description'  => ['required', 'string'], 
             'date'         => ['required', 'date'], 
-            'time'         => ['required', 'date_format:H:i'], 
+            'start_time'   => ['required', 'date_format:H:i'], 
+            'end_time'     => ['required', 'date_format:H:i'], 
             'location'     => ['required', 'string'], 
             'image'        => ['required', 'image'], 
+            'price'        => ['required']
         ];
     }
 }

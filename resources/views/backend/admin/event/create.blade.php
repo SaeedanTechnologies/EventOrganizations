@@ -32,13 +32,14 @@
                 </div>
 
                 <div class="form-row">
+                    
                     <div class="form-group col-md-6">
-                        <label for="date">Date</label>
-                        <input type="date" class="form-control" name="date" id="date" required>
+                        <label for="time">Start Time</label>
+                        <input type="time" class="form-control" name="start_time" id="time" required>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="time">Time</label>
-                        <input type="time" class="form-control" name="time" id="time" required>
+                        <label for="time">End Time</label>
+                        <input type="time" class="form-control" name="end_time" id="time" required>
                     </div>
                 </div>
 
@@ -55,6 +56,16 @@
                     </div>
                 </div>
 
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="date">Date</label>
+                        <input type="date" class="form-control" name="date" id="date" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="date">Price</label>
+                        <input type="text" class="form-control" name="price" id="date" required>
+                    </div>
+                </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="organizer">Organizer</label>

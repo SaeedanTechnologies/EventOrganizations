@@ -19,6 +19,6 @@ class CheckRole
 
             return $next($request);
         }
-        return response()->json(['message', 'you are not authenticated']);
+        return redirect()->back()->with('error', 'you are not Login');
     }
 }

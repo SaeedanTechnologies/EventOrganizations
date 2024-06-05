@@ -59,6 +59,10 @@
                     <a href="{{route('organizer.special_offers.index')}}" class="nav-link "><span class="pcoded-micon"><i
                                 class="feather icon-file-text"></i></span><span class="pcoded-mtext">Special Offers</span></a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('organizer.organizer_booking')}}" class="nav-link "><span class="pcoded-micon"><i
+                                class="feather icon-layout"></i></span><span class="pcoded-mtext">Booking</span></a>
+                </li>
                 <!-- <li class="nav-item pcoded-menu-caption">
                     <label>Newsletter</label>
                 </li>

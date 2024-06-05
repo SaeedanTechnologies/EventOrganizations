@@ -57,3 +57,110 @@
         background-color: #5a3bc8;
     }
     </style>
+    <style>
+        .single-blog-grid {
+            position: relative;
+        }
+
+        .offer-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #F20487;
+            color: white;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+
+        .offer-details {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-top: 10px;
+            border-left: 4px solid #F20487;
+        }
+
+        .offer-item {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .offer-item i {
+            margin-right: 5px;
+            color: #ff6f61;
+        }
+
+        .offer-details h5 {
+            margin-bottom: 10px;
+            color: #ff6f61;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            background-color: #F20487;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary {
+            border-color: #F20487;
+        }
+
+        .btn-primary:hover {
+            background-color: #F20487;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-social {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 15px;
+            font-size: 14px;
+            text-decoration: none;
+            border-radius: 5px;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-social i {
+            margin-right: 5px;
+        }
+
+        .btn-facebook {
+            background-color: #3b5998;
+        }
+
+        .btn-facebook:hover {
+            background-color: #2d4373;
+        }
+
+        .btn-twitter {
+            background-color: #1da1f2;
+        }
+
+        .btn-twitter:hover {
+            background-color: #0d95e8;
+        }
+
+        .btn-linkedin {
+            background-color: #0077b5;
+        }
+
+        .btn-linkedin:hover {
+            background-color: #005582;
+        }
+
+    </style>

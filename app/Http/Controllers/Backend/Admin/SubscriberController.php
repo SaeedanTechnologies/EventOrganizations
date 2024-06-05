@@ -23,6 +23,7 @@ class SubscriberController extends Controller
         try {
             Subscriber::create([
                 'email' => $request->email,
+                'name'  => $request->name
             ]);
             return redirect()->back()->with('success', 'Subscribed successfully!');
         } catch (\Throwable $th) {

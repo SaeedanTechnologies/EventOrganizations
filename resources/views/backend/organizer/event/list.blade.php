@@ -26,6 +26,7 @@
                             <th>Title</th>
                             <th>Date</th>
                             <th>Time</th>
+                            <th>Price</th>
                             <th>Location</th>
                             <th>Image</th>
                             <th>Action</th>
@@ -37,7 +38,8 @@
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $event->title }}</td>
                             <td>{{ $event->date }}</td>
-                            <td>{{ $event->time }}</td>
+                            <td>{{ $event->start_time }} to {{ $event->end_time }}</td>
+                            <td>${{ $event->price }}</td>
                             <td>{{ $event->location }}</td>
                             <td><img src="{{ $event->image }}" height="150" alt="" class="img-fluid rounded"></td>
                             <td>

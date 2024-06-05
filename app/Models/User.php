@@ -43,4 +43,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(SpecialOffer::class);
     }
+
+    public function Booking()
+    {
+        return $this->hasMany(SpecialOffer::class);
+    }
+
+    
 }

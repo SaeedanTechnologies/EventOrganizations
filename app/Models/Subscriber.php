@@ -9,6 +9,7 @@ class Subscriber extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'email'
+        'email',
+        'name'
     ];
 }

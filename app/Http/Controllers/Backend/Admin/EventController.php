@@ -43,7 +43,9 @@ class EventController extends Controller
                 'title'        => $data['title'],
                 'description'  => $data['description'],
                 'date'         => $data['date'],
-                'time'         => $data['time'],
+                'start_time'   => $data['start_time'],
+                'end_time'     => $data['end_time'],
+                'price'        => $data['price'],
                 'location'     => $data['location'],
                 'image'        => UploadFiles::upload($data['image'], 'image', 'eventImage')
             ]);
@@ -81,7 +83,9 @@ class EventController extends Controller
                 'title'        => $request->title ?? $event->title,
                 'description'  => $request->description ?? $event->description,
                 'date'         => $request->date ?? $event->date,
-                'time'         => $request->time ?? $event->time,
+                'start_time'   => $request->start_time ?? $event->start_time,
+                'end_time'     => $request->end_time ?? $event->end_time,
+                'price'        => $request->price ?? $event->price,
                 'location'     => $request->location ?? $event->location,
                 'image'        => UploadFiles::upload($request->image, 'image', 'eventImage') ?? $event->image
             ]);
